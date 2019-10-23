@@ -14,13 +14,10 @@ jobs:
         MIDDLE_NAME: The
         LAST_NAME: Octocat
       run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
-        set
         echo $HOME
-        echo $GITHUB_WORKSPACE
         echo $GITHUB_EVENT_PATH
-        ls /github
-        find /github
+        find $HOME
+        echo Coucou > $GITHUB_EVENT_PATH/coucou
     
     - name: Print another greeting
       env:
@@ -28,8 +25,7 @@ jobs:
         LAST_NAME: Octocat
       run: |
         set
-        ls /github
-        find /github
+        cat $GITHUB_EVENT_PATH/coucou
 
 
 
