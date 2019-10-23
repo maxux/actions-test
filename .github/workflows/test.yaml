@@ -26,5 +26,5 @@ jobs:
         cat $HOME/workdir/hello
     
     - name: And use external one
-      uses: maxux/github-actions-touse
+      uses: maxux/github-actions-touse@master
 
