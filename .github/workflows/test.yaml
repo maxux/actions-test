@@ -25,3 +25,12 @@ jobs:
         set
         cat $HOME/workdir/hello
 
+  another-job:
+    name: Another Job
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get back the greeting
+      run: |
+        set
+        cat $HOME/workdir/hello
+
