@@ -14,10 +14,8 @@ jobs:
         MIDDLE_NAME: The
         LAST_NAME: Octocat
       run: |
-        echo $HOME
-        echo $GITHUB_EVENT_PATH
-        find $HOME
-        echo Coucou > $GITHUB_EVENT_PATH/coucou
+        mkdir $HOME/workdir
+        echo Coucou > $HOME/workdir/hello
     
     - name: Print another greeting
       env:
@@ -25,8 +23,5 @@ jobs:
         LAST_NAME: Octocat
       run: |
         set
-        cat $GITHUB_EVENT_PATH/coucou
-
-
-
+        cat $HOME/workdir/hello
 
