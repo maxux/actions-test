@@ -24,13 +24,7 @@ jobs:
       run: |
         set
         cat $HOME/workdir/hello
-
-  another-job:
-    name: Another Job
-    runs-on: ubuntu-latest
-    steps:
-    - name: Get back the greeting
-      run: |
-        set
-        cat $HOME/workdir/hello
+    
+    - name: And use external one
+      uses: maxux/github-actions-touse
 
