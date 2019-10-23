@@ -19,6 +19,7 @@ jobs:
         find /github
     
     - name: Print another greeting
+      env:
         MIDDLE_NAME: The
         LAST_NAME: Octocat
       run: |
