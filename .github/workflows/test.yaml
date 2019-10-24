@@ -7,6 +7,9 @@ jobs:
     name: My Job
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout source code
+      uses: actions/checkout@master
+
     - name: Print a greeting
       env:
         MY_VAR: Hi there! My name is
@@ -24,7 +27,8 @@ jobs:
       run: |
         set
         cat $HOME/workdir/hello
-    
+
     - name: And use external one
-      uses: maxux/github-actions-touse@master
+      uses: docker://maxux/zflist:development-v2
+      run: ./debug.sh
 
