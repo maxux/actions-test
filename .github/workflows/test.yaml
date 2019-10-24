@@ -34,6 +34,7 @@ jobs:
           ZFLIST_MNT: /tmp/newflist
           ZFLIST_BACKEND: '{"host": "playground.hub.grid.tf", "port": 9910}'
           ZFLIST_HUB_TOKEN: ${{ secrets.HUB_TOKEN }}
+          ZFLIST_FILENAME: /tmp/demo-from-action.flist
       with:
         entrypoint: ./debug.sh
 
