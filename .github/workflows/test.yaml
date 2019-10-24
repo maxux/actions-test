@@ -29,12 +29,7 @@ jobs:
         cat $HOME/workdir/hello
 
     - name: And use external one
-      uses: docker://maxux/zflist:development-v2
-      env:
-          ZFLIST_MNT: /tmp/newflist
-          ZFLIST_BACKEND: '{"host": "playground.hub.grid.tf", "port": 9910}'
-          ZFLIST_HUB_TOKEN: ${{ secrets.HUB_TOKEN }}
-          ZFLIST_FILENAME: /tmp/demo-from-action.flist
+      uses: maxux/publish-flist@master
       with:
-        entrypoint: ./debug.sh
-
+        name: demo-from-action.flist
+        token: ${{ secrets.HUB_TOKEN }}
