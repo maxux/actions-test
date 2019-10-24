@@ -1,35 +1,35 @@
-name: Greeting from Mona
-
+name: Testing the flist publisher
 on: push
 
 jobs:
   my-job:
-    name: My Job
+    name: Publishing flist
     runs-on: ubuntu-latest
     steps:
     - name: Checkout source code
       uses: actions/checkout@master
 
-    - name: Print a greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Mona
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        mkdir $HOME/workdir
-        echo Coucou > $HOME/workdir/hello
-    
-    - name: Print another greeting
-      env:
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        set
-        cat $HOME/workdir/hello
-
-    - name: And use external one
+    - name: Publishing flist
       uses: maxux/publish-flist@master
       with:
+        action: publish
         name: demo-from-action.flist
+        token: ${{ secrets.HUB_TOKEN }}
+
+    - name: Promoting flist
+      uses: maxux/publish-flist@master
+      with:
+        action: promote
+        user: tf-official-apps
+        name: maxux/demo-from-action.flist
+        target: demo-action-promoted.flist
+        token: ${{ secrets.HUB_TOKEN }}
+
+    - name: Symlink flist
+      uses: maxux/publish-flist@master
+      with:
+        action: symlink
+        user: tf-official-apps
+        name: demo-action-promoted.flist
+        target: final:symlinked-master.flist
         token: ${{ secrets.HUB_TOKEN }}
