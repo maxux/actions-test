@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 echo $INPUT_NAME
 echo $INPUT_DESCRIPTION
 

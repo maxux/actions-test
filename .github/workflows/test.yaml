@@ -31,5 +31,5 @@ jobs:
     - name: And use external one
       uses: docker://maxux/zflist:development-v2
       with:
-        entrypoint: sh debug.sh
+        entrypoint: ./debug.sh
 
